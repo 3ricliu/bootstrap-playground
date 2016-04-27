@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   validates :session_token, uniqueness: true
 
   has_many :posts
-
+  has_many :comments
+  
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     if user
