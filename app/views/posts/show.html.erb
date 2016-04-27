@@ -1,0 +1,25 @@
+Post:
+<br>
+<%= @post.title %>
+<br>
+
+<li>
+<%= @post.body %>
+<br>
+<br>
+
+
+<br>
+Author:
+<br>
+<%= @post.user.username %>
+
+<br>
+<br>
+
+
+
+<br>
+<br>
+<%= link_to "Edit Post", edit_post_url %>
+<%= link_to "Posts", posts_url %>

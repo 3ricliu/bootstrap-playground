@@ -1,0 +1,11 @@
+<% @posts.each do |post| %>
+
+  Title: <%= link_to "#{post.title}", post_url(post) %>
+  <br>
+  Post: <%= post.body %>
+  <br>
+  Author: <%= post.user.username %>
+  <br/>
+<% end %>
+  <br>
+<%= link_to "New Post", new_post_url%>

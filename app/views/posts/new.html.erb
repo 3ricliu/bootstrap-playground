@@ -1,0 +1,16 @@
+<h1>New Post</h1>
+<br>
+
+<form action="<%= posts_url %>" method="post">
+
+  <%= render "layouts/auth" %>
+
+  <label>Title
+    <input type="text" name="post[title]" value="<%= @post.title %>">
+  </label>
+  <br>
+  <label>Body
+    <input type="text" name="post[body]" value="<%= @post.body %>">
+  </label>
+  <input type="submit" value="Create New Post">
+</form>
