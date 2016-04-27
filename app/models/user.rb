@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(username, password)
     user = User.find_by_username(usernaem)
     if user
-      user.correct_password?(password) ? return user : return nil
+      user.correct_password?(password) ? (return user) : (return nil)
     end
 
     nil
@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
