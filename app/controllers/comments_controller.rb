@@ -1,9 +1,11 @@
 class CommentsController < ApplicationController
+
+  before_filter :require_sign_in!
+  
   def create
     @comment = Comment.new(comment_params)
-    @comment.post_id = params[:comment][:post_id]
+    @comment.user_id = current_user.id
     if @comment.save
-      @comment.user_id = current_user.id
       redirect_to post_url(@comment.post_id)
     else
       flash[:errors] = @comment.errors.full_messages

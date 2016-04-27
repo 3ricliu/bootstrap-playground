@@ -14,6 +14,26 @@ Author:
 <br>
 <%= @post.user.username %>
 
+Comments:
+<% @post.comments.each do |comment| %>
+  <li> <%= comment.body %> <%= button_to "Remove Comment", comment_url(comment), method: :delete %></li>
+<% end %>
+</li>
+
+<br>
+
+
+<form action="<%= comments_url %>" method="post">
+  <%= render "layouts/auth" %>
+  <label>Comment
+    <input type="text" name="comment[body]" value="">
+  </label>
+  <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+  <br>
+  <input type="submit" value="Add Comment">
+</form>
+
+
 <br>
 <br>
 
